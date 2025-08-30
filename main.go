@@ -10,10 +10,9 @@ func main() {
 }
 
 func Hello() {
-	fmt.Println("Hello")
-	fmt.Println("Goodbye")
-	fmt.Println(AddTwoNumber(20, 30))
-	fmt.Println("")
+    fmt.Println("Hello")
+    fmt.Println("Goodbye")
+    fmt.Println(addtwonumber(20, 30))
 }
 
 func AddTwoNumber(a, b int) int {
