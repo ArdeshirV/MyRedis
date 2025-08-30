@@ -13,6 +13,7 @@ func Hello() {
 	fmt.Println("Hello")
 	fmt.Println("Goodbye")
 	fmt.Println(AddTwoNumber(20, 30))
+	fmt.Println("")
 }
 
 func AddTwoNumber(a, b int) int {
