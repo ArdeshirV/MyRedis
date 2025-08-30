@@ -10,14 +10,17 @@ func main() {
 }
 
 func Hello() {
-    fmt.Println("Hello")
-    fmt.Println("Goodbye")
-    fmt.Println(addtwonumber(20, 30))
+	fmt.Println("Hello")
+	fmt.Println("Goodbye")
 }
 
 func AddTwoNumber(a, b int) int {
 	result := a + b
 	return result
+}
+
+func AddNumbers() {
+	fmt.Println("Hello World!")
 }
 
 func HelloWorld() {
