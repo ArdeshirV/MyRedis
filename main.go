@@ -5,5 +5,5 @@ import (
 )
 
 func main() {
-    fmt.Println(MagentaBold, "The MyRedis Database!", Normal)
+	fmt.Println(MagentaBold, "The MyRedis Database!", Normal)
 }
