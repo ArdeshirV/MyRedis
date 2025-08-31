@@ -26,9 +26,9 @@ func main() {
 	}
 
 	value1, ok1 := db.Get("key1")
-	fmt.Println(Out(fmt.Sprintln("Value1:", value1, "Exists:", ok1)))
+	fmt.Println(Out(fmt.Sprint("Value1: ", value1, "Exists: ", ok1)))
 	value2, ok2 := db.Get("key2")
-	fmt.Println(Out(fmt.Sprintln("Value2:", value2, "Exists:", ok2)))
+	fmt.Println(Out(fmt.Sprint("Value2: ", value2, "Exists: ", ok2)))
 }
 
 type Database struct {
