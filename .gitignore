@@ -35,3 +35,5 @@ go.work.sum
 *.*.swp
 MyRedis
 main
+.colors.go.swp
+.main.go.swp
