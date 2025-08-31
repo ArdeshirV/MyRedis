@@ -39,3 +39,14 @@ main
 .colors.go.swo
 .main.go.swo
 
+
+.swp
+*.swp
+*.*.swp
+MyRedis
+main
+
+.colors.go.swp
+.main.go.swp
+
+

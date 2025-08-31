@@ -8,7 +8,7 @@ import (
 )
 
 func main() {
-	fmt.Println(MagentaBold, "The MyRedis Database!", Normal)
+	fmt.Println(Prompt("The MyRedis Database!"))
 	db := NewDatabase()
 	db.Set("key1", "value1")
 	db.Set("key2", "value2")
@@ -26,9 +26,9 @@ func main() {
 	}
 
 	value1, ok1 := db.Get("key1")
-	fmt.Println("Value1:", value1, "Exists:", ok1)
+	fmt.Println(Out(fmt.Sprintln("Value1:", value1, "Exists:", ok1)))
 	value2, ok2 := db.Get("key2")
-	fmt.Println("Value2:", value2, "Exists:", ok2)
+	fmt.Println(Out(fmt.Sprintln("Value2:", value2, "Exists:", ok2)))
 }
 
 type Database struct {

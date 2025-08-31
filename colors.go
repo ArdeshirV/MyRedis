@@ -86,3 +86,15 @@ func YellowBoldText(text string) string {
 func MagentaBoldText(text string) string {
 	return MagentaBold + text + Normal
 }
+
+func Prompt(text string) string {
+	return Bold + text + Normal
+}
+
+func Out(text string) string {
+	return MagentaBold + text + Normal
+}
+
+func In(text string) string {
+	return GreenBold + text + Normal
+}
