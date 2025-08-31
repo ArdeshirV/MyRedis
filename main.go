@@ -9,20 +9,9 @@ func main() {
 	//Hello()
 }
 
-func ExitApp() {
-
-}
-
-
 func Hello() {
     fmt.Println("Hello")
-	fmt.Println("Goodbye")
-   
-}
-
-func AddTwoNumber(a, b int) int {
-	result := a + b
-	return result
+    fmt.Println("Goodbye")
 }
 
 func AddNumbers() {
