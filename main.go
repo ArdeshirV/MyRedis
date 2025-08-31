@@ -9,6 +9,26 @@ import (
 
 func main() {
 	fmt.Println(MagentaBold, "The MyRedis Database!", Normal)
+	db := NewDatabase()
+	db.Set("key1", "value1")
+	db.Set("key2", "value2")
+
+	err := db.Persist("Database.gob")
+	if err != nil {
+		fmt.Println("Failed to persist database:", err)
+		return
+	}
+
+	err = db.Load("Database.gob")
+	if err != nil {
+		fmt.Println("Failed to load databse:", err)
+		return
+	}
+
+	value1, ok1 := db.Get("key1")
+	fmt.Println("Value1:", value1, "Exists:", ok1)
+	value2, ok2 := db.Get("key2")
+	fmt.Println("Value2:", value2, "Exists:", ok2)
 }
 
 type Database struct {
@@ -35,7 +55,7 @@ func (db *Database) Get(key string) (any, bool) {
 	return value, ok
 }
 
-func (db *Database) Persis(filename string) error {
+func (db *Database) Persist(filename string) error {
 	db.lock.RLock()
 	defer db.lock.RUnlock()
 
@@ -54,21 +74,19 @@ func (db *Database) Persis(filename string) error {
 }
 
 func (db *Database) Load(filename string) error {
-    db.lock.Lock()
-    defer db.lock.Unlock()
+	db.lock.Lock()
+	defer db.lock.Unlock()
 
-    file, err := os.Open(filename)
-    if err != nil {
-        return err
-    }
-    defer file.Close()
+	file, err := os.Open(filename)
+	if err != nil {
+		return err
+	}
+	defer file.Close()
 
-    decoder := gob.NewDecoder(file)
-    if err := decoder.Decode(&db.data); err != nil {
-        return err
-    }
+	decoder := gob.NewDecoder(file)
+	if err := decoder.Decode(&db.data); err != nil {
+		return err
+	}
 
-    return nil
+	return nil
 }
-
-
