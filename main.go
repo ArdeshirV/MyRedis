@@ -52,3 +52,23 @@ func (db *Database) Persis(filename string) error {
 
 	return nil
 }
+
+func (db *Database) Load(filename string) error {
+    db.lock.Lock()
+    defer db.lock.Unlock()
+
+    file, err := os.Open(filename)
+    if err != nil {
+        return err
+    }
+    defer file.Close()
+
+    decoder := gob.NewDecoder(file)
+    if err := decoder.Decode(&db.data); err != nil {
+        return err
+    }
+
+    return nil
+}
+
+
