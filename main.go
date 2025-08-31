@@ -28,4 +28,9 @@ func (db *Database) Set(key string, value any) {
     db.data[key] = value
 }
 
-
+func (db *Database) Get(key string) (any, bool) {
+    db.lock.RLock()
+    defer db.lock.RUnlock()
+    value, ok := db.data[key]
+    return value, ok
+}
